@@ -18,9 +18,6 @@ function signUp(req, res) {
 }
 
 function signIn(req, res) {
-
-  console.log("User login request", req);
-
   User.find({ email: req.body.email }, function (err, user) {
     if (err) return res.status(500).send({ message: err });
     if (!user || user.length == 0) return res.status(404).send({ message: 'No existe el usuario' });
